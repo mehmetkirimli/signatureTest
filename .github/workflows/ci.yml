@@ -1,0 +1,22 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master  # Ana dal (main veya master)
+  pull_request:
+    branches:
+      - master  # Ana dalına açılan pull request'ler
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Kullanmak istediğiniz işletim sistemi
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '1.8'  # Kullanmak istediğiniz Java sürümü
+
